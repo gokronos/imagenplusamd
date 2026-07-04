@@ -2,7 +2,9 @@ import {
   ArrowUpRight,
   BadgeCheck,
   BarChart3,
+  BotMessageSquare,
   BookOpen,
+  BrainCircuit,
   Brush,
   Building2,
   Camera,
@@ -18,6 +20,8 @@ import {
   Sparkles,
   Target,
   Users,
+  WandSparkles,
+  Workflow,
   type LucideIcon,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -66,6 +70,8 @@ type CmsService = {
 const iconMap: Record<string, LucideIcon> = {
   BadgeCheck,
   BookOpen,
+  BotMessageSquare,
+  BrainCircuit,
   Brush,
   Building2,
   Camera,
@@ -81,6 +87,8 @@ const iconMap: Record<string, LucideIcon> = {
   Sparkles,
   Target,
   Users,
+  WandSparkles,
+  Workflow,
 };
 
 function serviceImage(service: CmsService) {

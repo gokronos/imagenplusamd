@@ -39,6 +39,7 @@ import {
 import { audiovisualServiceDetails } from '@/data/services/audiovisual';
 import { disenoServiceDetails } from '@/data/services/diseno';
 import { desarrolloWebServiceDetails } from '@/data/services/desarrollo-web';
+import { inteligenciaArtificialServiceDetails } from '@/data/services/inteligencia-artificial';
 import { marketingServiceDetails } from '@/data/services/marketing';
 
 type ServiceItemGridProps = {
@@ -59,6 +60,7 @@ const serviceDetails: Record<string, ServiceModalContent> = {
   ...marketingServiceDetails,
   ...desarrolloWebServiceDetails,
   ...audiovisualServiceDetails,
+  ...inteligenciaArtificialServiceDetails,
 };
 
 function normalizeLabel(label: string) {

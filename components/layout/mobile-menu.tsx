@@ -5,6 +5,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
+import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const serviceGroups = [
@@ -31,7 +32,7 @@ const serviceGroups = [
   {
     title: 'Inteligencia Artificial',
     slug: 'inteligencia-artificial',
-    items: ['Automatización empresarial', 'Chatbots', 'Agentes inteligentes'],
+    items: inteligenciaArtificialServiceItems,
   },
 ];
 

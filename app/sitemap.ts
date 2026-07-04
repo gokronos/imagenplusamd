@@ -38,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios/cobertura-eventos',
     '/servicios/streaming',
     '/servicios/motion-graphics',
+    '/servicios/automatizacion-empresarial',
+    '/servicios/creacion-de-contenido',
+    '/servicios/chatbots',
+    '/servicios/agentes-inteligentes',
+    '/servicios/automatizacion-marketing',
+    '/servicios/optimizacion-procesos',
   ];
 
   return [

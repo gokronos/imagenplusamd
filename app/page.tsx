@@ -19,6 +19,7 @@ import { ServiceItemGrid } from '@/components/services/service-item-grid';
 import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
+import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const navigation = [
@@ -69,14 +70,7 @@ const serviceGroups = [
     icon: Bot,
     description:
       'Automatización, asistentes y procesos inteligentes para escalar operación y marketing.',
-    items: [
-      'Automatización empresarial',
-      'Creación de contenido',
-      'Chatbots',
-      'Agentes inteligentes',
-      'Automatización de marketing',
-      'Optimización de procesos',
-    ],
+    items: inteligenciaArtificialServiceItems,
   },
 ];
 

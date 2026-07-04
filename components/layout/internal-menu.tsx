@@ -6,6 +6,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
+import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 type ServiceMenuGroup = {
@@ -93,14 +94,15 @@ const services: ServiceMenuGroup[] = [
     number: '05',
     label: 'Inteligencia Artificial',
     href: '/#inteligencia-artificial',
-    items: [
-      'Automatización empresarial',
-      'Creación de contenido',
-      'Chatbots',
-      'Agentes inteligentes',
-      'Automatización de marketing',
-      'Optimización de procesos',
-    ],
+    items: inteligenciaArtificialServiceItems,
+    itemLinks: {
+      'Automatizacion empresarial': '/servicios/automatizacion-empresarial',
+      'Creacion de contenido': '/servicios/creacion-de-contenido',
+      Chatbots: '/servicios/chatbots',
+      'Agentes inteligentes': '/servicios/agentes-inteligentes',
+      'Automatizacion de marketing': '/servicios/automatizacion-marketing',
+      'Optimizacion de procesos': '/servicios/optimizacion-procesos',
+    },
   },
 ];
 
