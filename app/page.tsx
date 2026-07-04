@@ -16,6 +16,7 @@ import {
 import { HeroSlider } from '@/components/home/hero-slider';
 import { MobileMenu } from '@/components/layout/mobile-menu';
 import { ServiceItemGrid } from '@/components/services/service-item-grid';
+import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
@@ -60,17 +61,7 @@ const serviceGroups = [
     icon: Video,
     description:
       'Contenido visual y narrativo para comunicar con impacto en medios digitales y tradicionales.',
-    items: [
-      'Fotografía',
-      'Video corporativo',
-      'Comerciales',
-      'Reels',
-      'Videos para redes sociales',
-      'Documentales',
-      'Cobertura de eventos',
-      'Streaming',
-      'Motion Graphics',
-    ],
+    items: audiovisualServiceItems,
   },
   {
     title: 'Inteligencia Artificial',

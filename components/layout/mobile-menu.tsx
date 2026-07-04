@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
@@ -25,7 +26,7 @@ const serviceGroups = [
   {
     title: 'Producción Audiovisual',
     slug: 'produccion-audiovisual',
-    items: ['Fotografía', 'Video corporativo', 'Reels', 'Motion Graphics'],
+    items: audiovisualServiceItems,
   },
   {
     title: 'Inteligencia Artificial',

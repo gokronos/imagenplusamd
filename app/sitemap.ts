@@ -29,6 +29,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios/sistemas-administrables',
     '/servicios/integracion-cms',
     '/servicios/optimizacion-velocidad',
+    '/servicios/fotografia',
+    '/servicios/video-corporativo',
+    '/servicios/comerciales',
+    '/servicios/reels',
+    '/servicios/videos-redes-sociales',
+    '/servicios/documentales',
+    '/servicios/cobertura-eventos',
+    '/servicios/streaming',
+    '/servicios/motion-graphics',
   ];
 
   return [

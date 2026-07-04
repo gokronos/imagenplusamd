@@ -36,6 +36,7 @@ import {
   X,
   type LucideIcon,
 } from 'lucide-react';
+import { audiovisualServiceDetails } from '@/data/services/audiovisual';
 import { disenoServiceDetails } from '@/data/services/diseno';
 import { desarrolloWebServiceDetails } from '@/data/services/desarrollo-web';
 import { marketingServiceDetails } from '@/data/services/marketing';
@@ -57,6 +58,7 @@ const serviceDetails: Record<string, ServiceModalContent> = {
   ...disenoServiceDetails,
   ...marketingServiceDetails,
   ...desarrolloWebServiceDetails,
+  ...audiovisualServiceDetails,
 };
 
 function normalizeLabel(label: string) {

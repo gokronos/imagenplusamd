@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
@@ -75,17 +76,18 @@ const services: ServiceMenuGroup[] = [
     number: '04',
     label: 'Producción Audiovisual',
     href: '/#produccion-audiovisual',
-    items: [
-      'Fotografía',
-      'Video corporativo',
-      'Comerciales',
-      'Reels',
-      'Videos para redes sociales',
-      'Documentales',
-      'Cobertura de eventos',
-      'Streaming',
-      'Motion Graphics',
-    ],
+    items: audiovisualServiceItems,
+    itemLinks: {
+      Fotografia: '/servicios/fotografia',
+      'Video corporativo': '/servicios/video-corporativo',
+      Comerciales: '/servicios/comerciales',
+      Reels: '/servicios/reels',
+      'Videos para redes sociales': '/servicios/videos-redes-sociales',
+      Documentales: '/servicios/documentales',
+      'Cobertura de eventos': '/servicios/cobertura-eventos',
+      Streaming: '/servicios/streaming',
+      'Motion Graphics': '/servicios/motion-graphics',
+    },
   },
   {
     number: '05',
