@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { marketingServiceItems } from '@/data/services/marketing';
 
 type ServiceMenuGroup = {
   number: string;
@@ -41,16 +42,17 @@ const services: ServiceMenuGroup[] = [
     number: '02',
     label: 'Marketing Digital',
     href: '/#marketing-digital',
-    items: [
-      'Estrategias digitales',
-      'Gestión de redes sociales',
-      'Community Management',
-      'Campañas publicitarias',
-      'Facebook Ads',
-      'Instagram Ads',
-      'Google Ads',
-      'Email Marketing',
-    ],
+    items: marketingServiceItems,
+    itemLinks: {
+      'Estrategias digitales': '/servicios/estrategias-digitales',
+      'Gestión de redes sociales': '/servicios/gestion-de-redes-sociales',
+      'Community Management': '/servicios/community-management',
+      'Campañas publicitarias': '/servicios/campanas-publicitarias',
+      'Facebook Ads': '/servicios/facebook-ads',
+      'Instagram Ads': '/servicios/instagram-ads',
+      'Google Ads': '/servicios/google-ads',
+      'Email Marketing': '/servicios/email-marketing',
+    },
   },
   {
     number: '03',

@@ -17,6 +17,7 @@ import { HeroSlider } from '@/components/home/hero-slider';
 import { MobileMenu } from '@/components/layout/mobile-menu';
 import { ServiceItemGrid } from '@/components/services/service-item-grid';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { marketingServiceItems } from '@/data/services/marketing';
 
 const navigation = [
   { number: '01', label: 'Inicio', href: '#inicio' },
@@ -42,16 +43,7 @@ const serviceGroups = [
     icon: Megaphone,
     description:
       'Estrategias, campañas y gestión de canales para atraer, convertir y fidelizar audiencias.',
-    items: [
-      'Estrategias digitales',
-      'Gestión de redes sociales',
-      'Community Management',
-      'Campañas publicitarias',
-      'Facebook Ads',
-      'Instagram Ads',
-      'Google Ads',
-      'Email Marketing',
-    ],
+    items: marketingServiceItems,
   },
   {
     title: 'Desarrollo Web',

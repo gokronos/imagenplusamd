@@ -13,6 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios/diseno-redes-sociales',
     '/servicios/publicidad-impresa',
     '/servicios/material-pop',
+    '/servicios/estrategias-digitales',
+    '/servicios/gestion-de-redes-sociales',
+    '/servicios/community-management',
+    '/servicios/campanas-publicitarias',
+    '/servicios/facebook-ads',
+    '/servicios/instagram-ads',
+    '/servicios/google-ads',
+    '/servicios/email-marketing',
   ];
 
   return [

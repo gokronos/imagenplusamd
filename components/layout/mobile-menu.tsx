@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { marketingServiceItems } from '@/data/services/marketing';
 
 const serviceGroups = [
   {
@@ -13,11 +14,7 @@ const serviceGroups = [
   {
     title: 'Marketing Digital',
     slug: 'marketing-digital',
-    items: [
-      'Estrategias digitales',
-      'Gestión de redes sociales',
-      'Campañas publicitarias',
-    ],
+    items: marketingServiceItems,
   },
   {
     title: 'Desarrollo Web',

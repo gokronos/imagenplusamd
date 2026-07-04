@@ -37,6 +37,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { disenoServiceDetails } from '@/data/services/diseno';
+import { marketingServiceDetails } from '@/data/services/marketing';
 
 type ServiceItemGridProps = {
   items: readonly string[];
@@ -53,6 +54,7 @@ type ServiceModalContent = {
 
 const serviceDetails: Record<string, ServiceModalContent> = {
   ...disenoServiceDetails,
+  ...marketingServiceDetails,
 };
 
 function normalizeLabel(label: string) {
