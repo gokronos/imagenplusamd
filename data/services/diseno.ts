@@ -50,6 +50,19 @@ export const disenoServiceDetails = {
     href: '/servicios/identidad-corporativa',
     visual: '/images/services/corporate-identity-modal.png',
   },
+  'manual de marca': {
+    title: 'Manual de marca',
+    eyebrow: 'Guia de uso visual',
+    summary:
+      'Organizamos las reglas visuales y comunicativas de tu marca para que cualquier pieza, documento o publicacion mantenga una identidad clara y consistente.',
+    bullets: [
+      'Definimos usos correctos del logo, colores, tipografias, composicion y estilo grafico.',
+      'Creamos lineamientos practicos para aplicar la marca en piezas digitales, impresas y comerciales.',
+      'Entregamos un documento claro para que tu equipo, proveedores o aliados usen la marca sin improvisar.',
+    ],
+    href: '/servicios/manual-de-marca',
+    visual: '/images/services/branding-modal.png',
+  },
   'papeleria empresarial': {
     title: 'Papelería empresarial',
     eyebrow: 'Material corporativo',
@@ -89,6 +102,19 @@ export const disenoServiceDetails = {
     href: '/servicios/diseno-redes-sociales',
     visual: '/images/services/social-media-design-modal.png',
   },
+  'publicidad impresa': {
+    title: 'Publicidad impresa',
+    eyebrow: 'Piezas promocionales',
+    summary:
+      'Diseñamos materiales impresos para promocionar servicios, campañas, eventos o productos con mensajes claros, buena jerarquia visual y archivos listos para produccion.',
+    bullets: [
+      'Creamos volantes, afiches, pendones, plegables, avisos, brochures y piezas promocionales.',
+      'Adaptamos cada diseño al formato, objetivo comercial, tipo de impresion y punto de entrega.',
+      'Preparamos artes finales con medidas, margenes y especificaciones necesarias para imprimir.',
+    ],
+    href: '/servicios/publicidad-impresa',
+    visual: '/images/services/graphic-design-modal.png',
+  },
   'material pop': {
     title: 'Material POP',
     eyebrow: 'Punto de venta',
@@ -102,6 +128,62 @@ export const disenoServiceDetails = {
     href: '/servicios/material-pop',
     visual: '/images/services/pop-material-modal.png',
   },
+} as const;
+
+export const manualMarcaPage = {
+  visual: '/images/services/branding-modal.png',
+  deliverables: [
+    'Documento de lineamientos para el uso correcto de logo, versiones, areas de seguridad y aplicaciones.',
+    'Sistema de color, tipografias, recursos graficos y criterios de composicion visual.',
+    'Ejemplos de aplicacion en piezas digitales, impresas, comerciales o institucionales.',
+    'Recomendaciones practicas para que el equipo y proveedores usen la marca con consistencia.',
+  ],
+  packages: [
+    {
+      name: 'Guia esencial',
+      description:
+        'Para marcas que necesitan ordenar las reglas basicas de uso y evitar aplicaciones inconsistentes.',
+      includes: [
+        'Logo y versiones',
+        'Color y tipografia',
+        'Usos correctos e incorrectos',
+      ],
+    },
+    {
+      name: 'Manual aplicado',
+      description:
+        'Para empresas que ya usan la marca en diferentes canales y necesitan criterios mas completos.',
+      includes: ['Sistema visual', 'Aplicaciones principales', 'Lineamientos por canal'],
+    },
+    {
+      name: 'Manual integral',
+      description:
+        'Para marcas que quieren documentar su identidad con mayor detalle para equipos, aliados y proveedores.',
+      includes: ['Normativa completa', 'Plantillas base', 'Guia de implementacion'],
+    },
+  ],
+  process: [
+    [
+      '01',
+      'Revisamos la identidad',
+      'Analizamos los recursos actuales de marca y como se estan aplicando.',
+    ],
+    [
+      '02',
+      'Definimos reglas',
+      'Ordenamos criterios de logo, color, tipografia, composicion y estilo.',
+    ],
+    [
+      '03',
+      'Creamos aplicaciones',
+      'Mostramos ejemplos reales para que las reglas sean faciles de usar.',
+    ],
+    [
+      '04',
+      'Entregamos el manual',
+      'Organizamos el documento final y los recursos necesarios para implementarlo.',
+    ],
+  ],
 } as const;
 
 export const disenoGraficoPage = {
@@ -464,6 +546,58 @@ export const disenoRedesSocialesPage = {
       '04',
       'Entregamos formatos',
       'Exportamos archivos listos para publicar o programar.',
+    ],
+  ],
+} as const;
+
+export const publicidadImpresaPage = {
+  visual: '/images/services/graphic-design-modal.png',
+  deliverables: [
+    'Volantes, afiches, pendones, plegables, brochures, avisos y piezas promocionales impresas.',
+    'Diseños adaptados a medidas, materiales, acabados y necesidades de impresion.',
+    'Mensajes visuales claros para promociones, campañas, lanzamientos, eventos o presencia comercial.',
+    'Artes finales preparados con margenes, sangrado y archivos listos para produccion.',
+  ],
+  packages: [
+    {
+      name: 'Pieza puntual',
+      description:
+        'Para una necesidad concreta como volante, afiche, pendon, aviso o pieza promocional.',
+      includes: ['Diseño principal', 'Ajuste de formato', 'Arte final para imprimir'],
+    },
+    {
+      name: 'Kit promocional',
+      description:
+        'Para campañas que necesitan varias piezas impresas conectadas por una misma linea visual.',
+      includes: ['Concepto visual', 'Sistema de piezas', 'Adaptaciones impresas'],
+    },
+    {
+      name: 'Campaña impresa',
+      description:
+        'Para marcas que quieren comunicar una oferta o lanzamiento con materiales de mayor alcance.',
+      includes: ['Direccion visual', 'Piezas multiples', 'Preparacion para produccion'],
+    },
+  ],
+  process: [
+    [
+      '01',
+      'Definimos objetivo',
+      'Aclaramos mensaje, publico, lugar de uso y formato de impresion.',
+    ],
+    [
+      '02',
+      'Organizamos contenido',
+      'Jerarquizamos textos, llamados, imagenes y datos comerciales.',
+    ],
+    [
+      '03',
+      'Diseñamos la pieza',
+      'Creamos una propuesta clara, atractiva y preparada para el formato.',
+    ],
+    [
+      '04',
+      'Preparamos impresion',
+      'Entregamos artes finales con especificaciones para produccion.',
     ],
   ],
 } as const;
