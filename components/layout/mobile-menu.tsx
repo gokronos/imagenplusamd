@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const serviceGroups = [
@@ -19,7 +20,7 @@ const serviceGroups = [
   {
     title: 'Desarrollo Web',
     slug: 'desarrollo-web',
-    items: ['Sitios corporativos', 'Landing Pages', 'Tiendas virtuales', 'CMS'],
+    items: desarrolloWebServiceItems,
   },
   {
     title: 'Producción Audiovisual',

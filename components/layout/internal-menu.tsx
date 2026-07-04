@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 type ServiceMenuGroup = {
@@ -58,16 +59,17 @@ const services: ServiceMenuGroup[] = [
     number: '03',
     label: 'Desarrollo Web',
     href: '/#desarrollo-web',
-    items: [
-      'Sitios corporativos',
-      'Landing Pages',
-      'Tiendas virtuales',
-      'Blogs',
-      'Portales informativos',
-      'Sistemas administrables',
-      'Integración con CMS',
-      'Optimización de velocidad',
-    ],
+    items: desarrolloWebServiceItems,
+    itemLinks: {
+      'Sitios corporativos': '/servicios/sitios-corporativos',
+      'Landing Pages': '/servicios/landing-pages',
+      'Tiendas virtuales': '/servicios/tiendas-virtuales',
+      Blogs: '/servicios/blogs',
+      'Portales informativos': '/servicios/portales-informativos',
+      'Sistemas administrables': '/servicios/sistemas-administrables',
+      'Integracion con CMS': '/servicios/integracion-cms',
+      'Optimizacion de velocidad': '/servicios/optimizacion-velocidad',
+    },
   },
   {
     number: '04',

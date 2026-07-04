@@ -17,6 +17,7 @@ import { HeroSlider } from '@/components/home/hero-slider';
 import { MobileMenu } from '@/components/layout/mobile-menu';
 import { ServiceItemGrid } from '@/components/services/service-item-grid';
 import { disenoServiceItems } from '@/data/services/diseno';
+import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const navigation = [
@@ -51,16 +52,7 @@ const serviceGroups = [
     icon: Code2,
     description:
       'Plataformas rápidas, administrables y pensadas para convertir tráfico en oportunidades reales.',
-    items: [
-      'Sitios corporativos',
-      'Landing Pages',
-      'Tiendas virtuales',
-      'Blogs',
-      'Portales informativos',
-      'Sistemas administrables',
-      'Integración con CMS',
-      'Optimización de velocidad',
-    ],
+    items: desarrolloWebServiceItems,
   },
   {
     title: 'Producción Audiovisual',

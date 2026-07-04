@@ -21,6 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios/instagram-ads',
     '/servicios/google-ads',
     '/servicios/email-marketing',
+    '/servicios/sitios-corporativos',
+    '/servicios/landing-pages',
+    '/servicios/tiendas-virtuales',
+    '/servicios/blogs',
+    '/servicios/portales-informativos',
+    '/servicios/sistemas-administrables',
+    '/servicios/integracion-cms',
+    '/servicios/optimizacion-velocidad',
   ];
 
   return [
