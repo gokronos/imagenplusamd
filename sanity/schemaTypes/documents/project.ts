@@ -7,7 +7,7 @@ import {
   seoField,
   slugField,
   statusField,
-} from '@/sanity/schemaTypes/shared/fields';
+} from '../shared/fields';
 
 export const project = defineType({
   name: 'project',

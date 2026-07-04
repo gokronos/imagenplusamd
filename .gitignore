@@ -27,6 +27,7 @@ tsconfig.tsbuildinfo
 
 # sanity
 .sanity
+.sanity-dist
 
 # system
 .DS_Store

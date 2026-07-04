@@ -15,11 +15,49 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { marketingPages } from '@/data/services/marketing';
+import { serviceBySlugQuery } from '@/sanity/lib/queries';
+import { sanityFetch } from '@/sanity/lib/fetch';
+import { urlForImage } from '@/sanity/lib/image';
+import type { SanityImage } from '@/types/sanity';
 
 type MarketingPageSlug = keyof typeof marketingPages;
 
 type MarketingServicePageProps = {
   slug: MarketingPageSlug;
+};
+
+type EditableService = {
+  title?: string;
+  excerpt?: string;
+  eyebrow?: string;
+  mainImage?: SanityImage;
+  hero?: {
+    title?: string;
+    intro?: string;
+    featureOne?: string;
+    featureTwo?: string;
+    imageEyebrow?: string;
+    imageText?: string;
+  };
+  details?: {
+    whatTitle?: string;
+    whatText?: string;
+    importanceTitle?: string;
+    importanceText?: string;
+  };
+  deliverables?: string[];
+  packagesTitle?: string;
+  packages?: Array<{
+    name?: string;
+    description?: string;
+    includes?: string[];
+  }>;
+  process?: Array<{
+    number?: string;
+    title?: string;
+    text?: string;
+  }>;
+  cta?: string;
 };
 
 const pageIcons: Record<MarketingPageSlug, LucideIcon> = {
@@ -33,8 +71,60 @@ const pageIcons: Record<MarketingPageSlug, LucideIcon> = {
   'email-marketing': Mail,
 };
 
-export function MarketingServicePage({ slug }: MarketingServicePageProps) {
-  const page = marketingPages[slug];
+function fromCms(slug: MarketingPageSlug, service: EditableService | null) {
+  const fallback = marketingPages[slug];
+
+  if (!service) {
+    return fallback;
+  }
+
+  const image = service.mainImage?.asset?._ref
+    ? urlForImage(service.mainImage).width(1200).height(1400).url()
+    : fallback.visual;
+
+  return {
+    ...fallback,
+    visual: image,
+    eyebrow: service.eyebrow || fallback.eyebrow,
+    title: service.hero?.title || service.title || fallback.title,
+    intro: service.hero?.intro || service.excerpt || fallback.intro,
+    featureOne: service.hero?.featureOne || fallback.featureOne,
+    featureTwo: service.hero?.featureTwo || fallback.featureTwo,
+    imageEyebrow: service.hero?.imageEyebrow || fallback.imageEyebrow,
+    imageText: service.hero?.imageText || fallback.imageText,
+    whatTitle: service.details?.whatTitle || fallback.whatTitle,
+    whatText: service.details?.whatText || fallback.whatText,
+    importanceTitle: service.details?.importanceTitle || fallback.importanceTitle,
+    importanceText: service.details?.importanceText || fallback.importanceText,
+    deliverables: service.deliverables?.filter(Boolean).length
+      ? service.deliverables.filter(Boolean)
+      : fallback.deliverables,
+    packagesTitle: service.packagesTitle || fallback.packagesTitle,
+    packages: service.packages?.length
+      ? service.packages
+          .filter((item) => item.name && item.description)
+          .map((item) => ({
+            name: item.name ?? '',
+            description: item.description ?? '',
+            includes: item.includes?.filter(Boolean) ?? [],
+          }))
+      : fallback.packages,
+    process: service.process?.length
+      ? service.process
+          .filter((step) => step.number && step.title && step.text)
+          .map((step) => [step.number ?? '', step.title ?? '', step.text ?? ''])
+      : fallback.process,
+    cta: service.cta || fallback.cta,
+  };
+}
+
+export async function MarketingServicePage({ slug }: MarketingServicePageProps) {
+  const service = await sanityFetch<typeof serviceBySlugQuery, EditableService | null>({
+    query: serviceBySlugQuery,
+    params: { slug },
+    tags: [`service:${slug}`],
+  });
+  const page = fromCms(slug, service);
   const Icon = pageIcons[slug];
 
   return (

@@ -1,13 +1,13 @@
-import { blockContent } from '@/sanity/schemaTypes/objects/block-content';
-import { seo } from '@/sanity/schemaTypes/objects/seo';
-import { category } from '@/sanity/schemaTypes/documents/category';
-import { client } from '@/sanity/schemaTypes/documents/client';
-import { post } from '@/sanity/schemaTypes/documents/post';
-import { project } from '@/sanity/schemaTypes/documents/project';
-import { service } from '@/sanity/schemaTypes/documents/service';
-import { siteSettings } from '@/sanity/schemaTypes/documents/site-settings';
-import { teamMember } from '@/sanity/schemaTypes/documents/team-member';
-import { testimonial } from '@/sanity/schemaTypes/documents/testimonial';
+import { blockContent } from './objects/block-content';
+import { seo } from './objects/seo';
+import { category } from './documents/category';
+import { client } from './documents/client';
+import { post } from './documents/post';
+import { project } from './documents/project';
+import { service } from './documents/service';
+import { siteSettings } from './documents/site-settings';
+import { teamMember } from './documents/team-member';
+import { testimonial } from './documents/testimonial';
 
 export const schemaTypes = [
   blockContent,
