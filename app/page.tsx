@@ -77,10 +77,30 @@ const serviceGroups = [
 ];
 
 const paths = [
-  ['01', 'Quiero vender más'],
-  ['02', 'Quiero una página web'],
-  ['03', 'Quiero automatizar procesos'],
-  ['04', 'Quiero construir mi marca'],
+  {
+    number: '01',
+    title: 'Quiero vender mas',
+    text: 'Campanas, pauta y contenido para atraer mejores oportunidades.',
+    href: '#marketing-digital',
+  },
+  {
+    number: '02',
+    title: 'Quiero una pagina web',
+    text: 'Sitios, landing pages y sistemas administrables para convertir visitas.',
+    href: '#desarrollo-web',
+  },
+  {
+    number: '03',
+    title: 'Quiero automatizar procesos',
+    text: 'IA, chatbots y flujos para reducir tareas repetitivas.',
+    href: '#inteligencia-artificial',
+  },
+  {
+    number: '04',
+    title: 'Quiero construir mi marca',
+    text: 'Identidad visual, branding y piezas para comunicar con coherencia.',
+    href: '#diseno',
+  },
 ];
 
 const processSteps = [
@@ -263,38 +283,49 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="proyectos" className="scroll-mt-10 px-5 py-20 md:px-10 xl:px-20">
-          <div className="grid gap-10 lg:grid-cols-[0.55fr_1.45fr]">
-            <div>
+        <section id="proyectos" className="scroll-mt-10 px-5 py-16 md:px-10 xl:px-20">
+          <div className="grid gap-10 border-y border-white/10 py-12 lg:grid-cols-[0.5fr_1.5fr]">
+            <div className="max-w-md">
               <p className="text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
-                Qué necesitas hoy
+                Punto de partida
               </p>
-              <h2 className="font-display mt-6 max-w-sm text-5xl leading-none font-black tracking-normal">
-                Elige el camino que llevará tu marca{' '}
-                <span className="text-blue-600">más lejos.</span>
+              <h2 className="font-display mt-6 text-4xl leading-none font-black tracking-normal md:text-5xl">
+                Entra por lo que tu marca necesita{' '}
+                <span className="text-blue-600">resolver.</span>
               </h2>
-              <p className="mt-8 max-w-xs text-sm leading-7 text-white/45">
-                Cada solución es personalizada. Cada resultado, medible.
+              <p className="mt-7 text-sm leading-7 text-white/48">
+                Si no sabes por donde empezar, estos caminos te llevan directo al area
+                correcta.
               </p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-4">
-              {paths.map(([number, title], index) => (
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+              {paths.map((path) => (
                 <a
-                  key={title}
-                  href="#contacto"
-                  className={`group flex min-h-64 flex-col justify-between border border-white/10 p-8 transition hover:-translate-y-1 ${
-                    index === 1
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-zinc-950 text-white hover:border-blue-600'
-                  }`}
+                  key={path.href}
+                  href={path.href}
+                  className="group grid min-h-48 content-between bg-[#05070b] p-6 transition hover:bg-blue-600 md:min-h-56"
                 >
-                  <ArrowUpRight size={34} />
                   <div>
-                    <span className="text-sm">{number}</span>
-                    <h3 className="mt-5 text-xl leading-tight font-black">{title}</h3>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm font-black text-blue-500 transition group-hover:text-white">
+                        {path.number}
+                      </span>
+                      <ArrowUpRight
+                        size={18}
+                        className="text-white/70 transition group-hover:rotate-45 group-hover:text-white"
+                      />
+                    </div>
+                    <h3 className="mt-8 text-xl leading-tight font-black">
+                      {path.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-white/48 transition group-hover:text-white/78">
+                      {path.text}
+                    </p>
                   </div>
-                  <ArrowUpRight size={18} />
+                  <span className="mt-8 text-[10px] font-black tracking-[0.18em] text-blue-500 uppercase transition group-hover:text-white">
+                    Ver servicios
+                  </span>
                 </a>
               ))}
             </div>
