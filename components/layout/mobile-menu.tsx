@@ -8,6 +8,7 @@ import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { getServiceHref } from '@/data/services/links';
 import { marketingServiceItems } from '@/data/services/marketing';
+import { whatsappUrl } from '@/lib/contact';
 
 const serviceGroups = [
   {
@@ -169,7 +170,9 @@ export function MobileMenu() {
         </div>
 
         <a
-          href="#contacto"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={closeMenu}
           className="mt-8 inline-flex h-12 w-full items-center justify-center gap-3 bg-blue-600 px-4 text-xs font-black tracking-[0.18em] text-white uppercase"
         >

@@ -1,4 +1,5 @@
 import { ArrowUpRight, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { whatsappUrl } from '@/lib/contact';
 
 const navigation = [
   { label: 'Inicio', href: '/#inicio' },
@@ -25,7 +26,9 @@ export function SiteFooter() {
               Hablemos de tu idea y construyamos algo extraordinario juntos.
             </p>
             <a
-              href="https://wa.me/573201234567"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex h-12 items-center gap-4 border border-white/30 px-5 text-xs font-black tracking-[0.16em] text-white uppercase transition hover:border-blue-600 hover:text-blue-500"
             >
               Hablemos por WhatsApp <ArrowUpRight size={16} />

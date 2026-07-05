@@ -8,6 +8,7 @@ import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { marketingServiceItems } from '@/data/services/marketing';
+import { whatsappUrl } from '@/lib/contact';
 
 type ServiceMenuGroup = {
   number: string;
@@ -196,7 +197,9 @@ export function InternalMenu() {
           </nav>
 
           <Link
-            href="/#contacto"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden h-11 items-center gap-3 border border-blue-600 px-4 text-xs font-black tracking-[0.18em] text-blue-500 uppercase transition hover:bg-blue-600 hover:text-white sm:inline-flex"
           >
             Cotizar
@@ -303,7 +306,9 @@ export function InternalMenu() {
         </nav>
 
         <Link
-          href="/#contacto"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={closeMenu}
           className="mt-8 inline-flex h-12 w-full items-center justify-center gap-3 bg-blue-600 px-4 text-xs font-black tracking-[0.18em] text-white uppercase"
         >

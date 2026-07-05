@@ -22,6 +22,7 @@ import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
 import { getServiceHref } from '@/data/services/links';
 import { marketingServiceItems } from '@/data/services/marketing';
+import { whatsappUrl } from '@/lib/contact';
 
 const navigation = [
   { number: '01', label: 'Inicio', href: '#inicio' },
@@ -158,7 +159,9 @@ export default function HomePage() {
         </nav>
 
         <a
-          href="#contacto"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-auto inline-flex h-12 items-center justify-center gap-3 border border-blue-600 px-4 text-xs font-bold tracking-[0.18em] text-blue-500 uppercase transition hover:bg-blue-600 hover:text-white"
         >
           Hablemos
@@ -380,7 +383,9 @@ export default function HomePage() {
                 Hablemos de tu idea y construyamos algo extraordinario juntos.
               </p>
               <a
-                href="https://wa.me/573201234567"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-flex h-12 items-center gap-4 border border-white/30 px-5 text-xs font-black tracking-[0.16em] text-white uppercase transition hover:border-blue-600 hover:text-blue-500"
               >
                 Hablemos por WhatsApp <ArrowUpRight size={16} />

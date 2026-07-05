@@ -6,6 +6,7 @@ import { siteConfig } from '@/lib/site';
 import { buildMetadata } from '@/lib/metadata';
 import { SiteShell } from '@/components/layout/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
+import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
 import { SanityLive } from '@/sanity/lib/live';
 import { VisualEditing } from 'next-sanity/visual-editing';
 
@@ -45,6 +46,7 @@ export default async function RootLayout({
       <body>
         <SkipLink />
         <SiteShell>{children}</SiteShell>
+        <WhatsAppFloatingButton />
         {isDraftMode ? <VisualEditing /> : null}
         <SanityLive />
       </body>
