@@ -11,10 +11,12 @@ import {
   Phone,
   Video,
 } from 'lucide-react';
+import type { Metadata } from 'next';
 import { AboutCarousel } from '@/components/home/about-carousel';
 import { ArticlesSection } from '@/components/home/articles-section';
 import { HeroSlider } from '@/components/home/hero-slider';
 import { MobileMenu } from '@/components/layout/mobile-menu';
+import { JsonLd } from '@/components/seo/json-ld';
 import { ServiceItemGrid } from '@/components/services/service-item-grid';
 import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
@@ -23,6 +25,22 @@ import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia
 import { getServiceHref } from '@/data/services/links';
 import { marketingServiceItems } from '@/data/services/marketing';
 import { whatsappUrl } from '@/lib/contact';
+import { buildMetadata } from '@/lib/metadata';
+import { absoluteUrl } from '@/lib/structured-data';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Agencia de Marketing Digital en Cúcuta, Bucaramanga y Colombia',
+  description:
+    'Imagen Plus impulsa marcas con marketing digital, diseño gráfico, desarrollo web, SEO, producción audiovisual e inteligencia artificial en Cúcuta, Bucaramanga y Colombia.',
+  path: '/',
+  keywords: [
+    'agencia de marketing digital en Cúcuta',
+    'agencia de publicidad en Cúcuta',
+    'desarrollo web en Cúcuta',
+    'SEO en Bucaramanga',
+    'diseño gráfico en Colombia',
+  ],
+});
 
 const navigation = [
   { number: '01', label: 'Inicio', href: '#inicio' },
@@ -104,8 +122,22 @@ const paths = [
 ];
 
 export default function HomePage() {
+  const servicesItemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Servicios de marketing, diseno y tecnologia de Imagen Plus',
+    itemListElement: serviceGroups.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: service.title,
+      description: service.description,
+      url: absoluteUrl(`/#${service.slug}`),
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <JsonLd data={servicesItemListJsonLd} />
       <aside className="custom-scrollbar fixed inset-y-0 left-0 z-40 hidden w-64 overflow-x-hidden overflow-y-auto border-r border-white/15 bg-black px-8 py-14 xl:flex xl:flex-col">
         <a
           href="#inicio"

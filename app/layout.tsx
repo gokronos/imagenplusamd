@@ -7,6 +7,12 @@ import { buildMetadata } from '@/lib/metadata';
 import { SiteShell } from '@/components/layout/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
+import { JsonLd } from '@/components/seo/json-ld';
+import {
+  localBusinessJsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from '@/lib/structured-data';
 import { SanityLive } from '@/sanity/lib/live';
 import { VisualEditing } from 'next-sanity/visual-editing';
 
@@ -23,9 +29,14 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = buildMetadata({
-  title: siteConfig.name,
+  title: 'Agencia de Marketing Digital en Cucuta y Colombia',
   description: siteConfig.description,
   path: '/',
+  keywords: [
+    'agencia de marketing digital en Cucuta',
+    'diseno web en Cucuta',
+    'publicidad digital en Bucaramanga',
+  ],
 });
 
 export const viewport: Viewport = {
@@ -44,6 +55,7 @@ export default async function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${manrope.variable}`}>
       <body>
+        <JsonLd data={[organizationJsonLd(), localBusinessJsonLd(), websiteJsonLd()]} />
         <SkipLink />
         <SiteShell>{children}</SiteShell>
         <WhatsAppFloatingButton />

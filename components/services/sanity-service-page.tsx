@@ -27,6 +27,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { JsonLd } from '@/components/seo/json-ld';
+import { breadcrumbJsonLd, absoluteUrl } from '@/lib/structured-data';
+import { siteConfig } from '@/lib/site';
 import { serviceBySlugQuery } from '@/sanity/lib/queries';
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { urlForImage } from '@/sanity/lib/image';
@@ -113,9 +116,37 @@ export async function SanityServicePage({ slug }: { slug: string }) {
     service?.packages?.filter((item) => item.name && item.description) ?? [];
   const process =
     service?.process?.filter((step) => step.number && step.title && step.text) ?? [];
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${absoluteUrl(`/servicios/${slug}`)}#service`,
+    name: title,
+    description: service?.excerpt,
+    url: absoluteUrl(`/servicios/${slug}`),
+    image: absoluteUrl(serviceImage(service ?? {})),
+    provider: {
+      '@id': `${siteConfig.url}/#local-business`,
+      name: siteConfig.name,
+    },
+    areaServed: siteConfig.business.areaServed.map((name) => ({
+      '@type': 'Place',
+      name,
+    })),
+    serviceType: title,
+  };
 
   return (
     <main className="min-h-screen bg-[#05070b] text-white">
+      <JsonLd
+        data={[
+          serviceJsonLd,
+          breadcrumbJsonLd([
+            { name: 'Inicio', path: '/' },
+            { name: 'Servicios', path: '/#servicios' },
+            { name: title, path: `/servicios/${slug}` },
+          ]),
+        ]}
+      />
       <section className="bg-black px-5 py-16 text-white md:px-10 xl:px-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
           <div>

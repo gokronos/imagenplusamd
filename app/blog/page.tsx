@@ -3,6 +3,10 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { JsonLd } from '@/components/seo/json-ld';
+import { buildMetadata } from '@/lib/metadata';
+import { absoluteUrl, breadcrumbJsonLd } from '@/lib/structured-data';
+import { siteConfig } from '@/lib/site';
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { urlForImage } from '@/sanity/lib/image';
 import { postsQuery } from '@/sanity/lib/queries';
@@ -22,9 +26,17 @@ type PostCard = {
 };
 
 export const metadata: Metadata = {
-  title: 'Blog | Imagen Plus',
-  description:
-    'Noticias, articulos y consejos de marketing, diseno, desarrollo web e inteligencia artificial para empresas.',
+  ...buildMetadata({
+    title: 'Blog de marketing digital, diseno web e IA',
+    description:
+      'Articulos y consejos de Imagen Plus sobre marketing digital, diseno, desarrollo web, SEO e inteligencia artificial para empresas en Cucuta, Bucaramanga y Colombia.',
+    path: '/blog',
+    keywords: [
+      'blog de marketing digital',
+      'consejos de marketing para empresas',
+      'SEO para empresas en Cucuta',
+    ],
+  }),
 };
 
 function postImage(post: PostCard) {
@@ -40,9 +52,48 @@ export default async function BlogPage() {
     query: postsQuery,
     tags: ['post'],
   });
+  const blogJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${absoluteUrl('/blog')}#blog`,
+    name: 'Blog Imagen Plus',
+    description: metadata.description,
+    url: absoluteUrl('/blog'),
+    publisher: {
+      '@id': `${siteConfig.url}/#organization`,
+    },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      url: post.slug ? absoluteUrl(`/blog/${post.slug}`) : absoluteUrl('/blog'),
+      datePublished: post.date,
+      image: absoluteUrl(postImage(post)),
+    })),
+  };
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.title,
+      url: post.slug ? absoluteUrl(`/blog/${post.slug}`) : absoluteUrl('/blog'),
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-[#05070b] text-white">
+      <JsonLd
+        data={[
+          blogJsonLd,
+          itemListJsonLd,
+          breadcrumbJsonLd([
+            { name: 'Inicio', path: '/' },
+            { name: 'Blog', path: '/blog' },
+          ]),
+        ]}
+      />
       <section className="bg-black px-5 py-16 md:px-10 xl:px-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-black tracking-[0.28em] text-blue-500 uppercase">

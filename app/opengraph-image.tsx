@@ -17,8 +17,8 @@ export default function OpenGraphImage() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        background: '#f8fafc',
-        color: '#111827',
+        background: '#030509',
+        color: '#ffffff',
         padding: 72,
         fontFamily: 'Inter, Arial, sans-serif',
       }}
@@ -27,15 +27,27 @@ export default function OpenGraphImage() {
         style={{
           width: 84,
           height: 10,
-          background: '#ef4444',
+          background: '#2563eb',
           marginBottom: 40,
         }}
       />
-      <div style={{ fontSize: 86, fontWeight: 800, letterSpacing: 0 }}>
-        {siteConfig.name}
+      <div style={{ fontSize: 84, fontWeight: 900, letterSpacing: 0, lineHeight: 0.92 }}>
+        Agencia de Marketing Digital
       </div>
-      <div style={{ maxWidth: 780, marginTop: 28, fontSize: 34, color: '#475569' }}>
-        {siteConfig.description}
+      <div
+        style={{
+          maxWidth: 900,
+          marginTop: 28,
+          fontSize: 34,
+          color: '#cbd5e1',
+          lineHeight: 1.25,
+        }}
+      >
+        Diseño, web, SEO, producción audiovisual e IA para marcas en Cúcuta, Bucaramanga y
+        Colombia.
+      </div>
+      <div style={{ marginTop: 58, fontSize: 28, fontWeight: 800, color: '#2563eb' }}>
+        {siteConfig.name}
       </div>
     </div>,
     size,

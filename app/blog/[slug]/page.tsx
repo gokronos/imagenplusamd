@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PortableText, type PortableTextBlock } from 'next-sanity';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { JsonLd } from '@/components/seo/json-ld';
+import { buildMetadata } from '@/lib/metadata';
 import { siteConfig } from '@/lib/site';
+import { absoluteUrl, breadcrumbJsonLd } from '@/lib/structured-data';
 import { sanityClient } from '@/sanity/lib/client';
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { urlForImage } from '@/sanity/lib/image';
@@ -64,20 +67,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const title = post.seo?.metaTitle ?? `${post.title} | Imagen Plus`;
   const description = post.seo?.metaDescription ?? post.excerpt ?? siteConfig.description;
 
-  return {
+  return buildMetadata({
     title,
     description,
-    alternates: {
-      canonical: `${siteConfig.url}/blog/${slug}`,
-    },
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      url: `${siteConfig.url}/blog/${slug}`,
-      images: post.mainImage?.asset?._ref ? [postImage(post)] : undefined,
-    },
-  };
+    path: `/blog/${slug}`,
+    image: post.mainImage?.asset?._ref ? postImage(post) : '/opengraph-image',
+    type: 'article',
+    keywords: [
+      post.categories?.[0]?.title ?? 'marketing digital',
+      'marketing digital en Cucuta',
+      'marketing digital en Bucaramanga',
+      'consejos para empresas en Colombia',
+    ],
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -91,9 +93,43 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
+  const postUrl = absoluteUrl(`/blog/${slug}`);
+  const image = absoluteUrl(postImage(post));
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${postUrl}#article`,
+    headline: post.title,
+    description: post.excerpt,
+    image,
+    url: postUrl,
+    mainEntityOfPage: postUrl,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: 'es-CO',
+    author: {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+    },
+    publisher: {
+      '@id': `${siteConfig.url}/#organization`,
+    },
+    articleSection: post.categories?.[0]?.title,
+  };
 
   return (
     <main className="min-h-screen bg-[#05070b] text-white">
+      <JsonLd
+        data={[
+          blogPostingJsonLd,
+          breadcrumbJsonLd([
+            { name: 'Inicio', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: post.title ?? 'Articulo', path: `/blog/${slug}` },
+          ]),
+        ]}
+      />
       <article>
         <section className="bg-black px-5 py-16 md:px-10 xl:px-20">
           <div className="mx-auto max-w-6xl">
