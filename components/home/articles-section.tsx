@@ -1,6 +1,9 @@
-import { ArrowUpRight, Newspaper } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import {
+  ArticlesCarousel,
+  type CarouselArticle,
+} from '@/components/home/articles-carousel';
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { urlForImage } from '@/sanity/lib/image';
 import { postsQuery } from '@/sanity/lib/queries';
@@ -73,8 +76,16 @@ export async function ArticlesSection() {
     query: postsQuery,
     tags: ['post'],
   });
-  const articles = (posts.length ? posts : fallbackArticles).slice(0, 4);
-  const [featured, ...secondary] = articles;
+  const articles: CarouselArticle[] = (posts.length ? posts : fallbackArticles)
+    .slice(0, 8)
+    .map((article) => ({
+      _id: article._id,
+      title: article.title,
+      slug: article.slug,
+      excerpt: article.excerpt,
+      image: articleImage(article),
+      meta: article.categories?.[0]?.title ?? formatDate(article.date),
+    }));
 
   return (
     <section
@@ -82,7 +93,7 @@ export async function ArticlesSection() {
       className="scroll-mt-10 bg-[#05070b] px-5 py-20 text-white md:px-10 xl:px-20"
     >
       <div className="mx-auto max-w-[1380px] border-y border-white/10 py-12">
-        <div className="grid gap-10 lg:grid-cols-[0.52fr_1.48fr]">
+        <div className="grid gap-10 lg:grid-cols-[0.42fr_1.58fr]">
           <div className="max-w-md">
             <p className="text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
               Noticias y consejos
@@ -104,73 +115,7 @@ export async function ArticlesSection() {
             </Link>
           </div>
 
-          {featured ? (
-            <div className="grid min-w-0 gap-px bg-white/10 lg:grid-cols-[1.05fr_0.95fr]">
-              <Link
-                href={featured.slug ? `/blog/${featured.slug}` : '/blog'}
-                className="group grid min-h-[460px] content-end overflow-hidden bg-black p-6 md:p-8"
-              >
-                <div className="absolute" />
-                <div className="relative -m-6 mb-8 h-64 overflow-hidden md:-m-8 md:mb-10 md:h-80">
-                  <Image
-                    src={articleImage(featured)}
-                    alt={featured.title ?? ''}
-                    fill
-                    sizes="(min-width: 1024px) 48vw, 100vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(0,0,0,0.76))]" />
-                </div>
-                <span className="inline-flex w-fit items-center gap-3 bg-blue-600 px-3 py-2 text-[10px] font-black tracking-[0.16em] uppercase">
-                  <Newspaper size={14} />
-                  {formatDate(featured.date)}
-                </span>
-                <h3 className="font-display mt-6 max-w-xl text-4xl leading-none font-black tracking-normal">
-                  {featured.title}
-                </h3>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-white/58">
-                  {featured.excerpt}
-                </p>
-                <span className="mt-8 inline-flex items-center gap-3 text-xs font-black tracking-[0.16em] text-blue-500 uppercase">
-                  Leer articulo <ArrowUpRight size={15} />
-                </span>
-              </Link>
-
-              <div className="grid gap-px bg-white/10">
-                {secondary.map((article) => (
-                  <Link
-                    key={article._id}
-                    href={article.slug ? `/blog/${article.slug}` : '/blog'}
-                    className="group grid grid-cols-[112px_minmax(0,1fr)] gap-5 bg-[#0b0f16] p-5 transition hover:bg-black sm:grid-cols-[150px_minmax(0,1fr)]"
-                  >
-                    <div className="relative min-h-32 overflow-hidden bg-black">
-                      <Image
-                        src={articleImage(article)}
-                        alt={article.title ?? ''}
-                        fill
-                        sizes="150px"
-                        className="object-cover opacity-86 transition duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[10px] font-black tracking-[0.18em] text-blue-500 uppercase">
-                        {article.categories?.[0]?.title ?? formatDate(article.date)}
-                      </p>
-                      <h3 className="mt-4 text-xl leading-tight font-black">
-                        {article.title}
-                      </h3>
-                      <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/52">
-                        {article.excerpt}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-[10px] font-black tracking-[0.16em] text-white/55 uppercase transition group-hover:text-blue-500">
-                        Leer mas <ArrowUpRight size={13} />
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
+          <ArticlesCarousel articles={articles} />
         </div>
       </div>
     </section>
