@@ -111,6 +111,30 @@ const processSteps = [
   ['05', 'Medimos', 'Analizamos resultados y optimizamos para crecer.'],
 ];
 
+const aboutCards = [
+  {
+    title: 'Mision',
+    text: 'Ayudar a empresas, instituciones y emprendedores a comunicar mejor, vender con mas claridad y construir marcas solidas a traves de estrategia, creatividad y tecnologia.',
+  },
+  {
+    title: 'Vision',
+    text: 'Ser una agencia referente en Colombia para marcas que buscan crecer con una presencia digital profesional, sistemas visuales consistentes y soluciones medibles.',
+  },
+  {
+    title: 'Como trabajamos',
+    text: 'Unimos diseno, marketing, desarrollo web, produccion audiovisual e inteligencia artificial para crear soluciones completas, no piezas aisladas.',
+  },
+];
+
+const trustMarks = [
+  'Gobernacion de Santander',
+  'Alcaldia de Cucuta',
+  'Universidad Simon Bolivar',
+  'MG Natural',
+  'Sonrisas de Esperanza',
+  'Clinica San Jose',
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -387,17 +411,67 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="nosotros" className="scroll-mt-10 px-5 py-16 md:px-10 xl:px-20">
-          <p className="text-center text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
-            Marcas e instituciones que confían en nosotros
-          </p>
-          <div className="mt-10 grid gap-8 text-center text-xl font-black text-white/65 md:grid-cols-3 xl:grid-cols-6">
-            <span>Gobernación de Santander</span>
-            <span>Alcaldía de Cúcuta</span>
-            <span>Universidad Simón Bolívar</span>
-            <span>MG Natural</span>
-            <span>Sonrisas de Esperanza</span>
-            <span>Clínica San José</span>
+        <section id="nosotros" className="scroll-mt-10 px-5 py-20 md:px-10 xl:px-20">
+          <div className="grid gap-12 border-y border-white/10 py-14 lg:grid-cols-[0.74fr_1.26fr]">
+            <div>
+              <p className="text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
+                Que es Imagen Plus
+              </p>
+              <h2 className="font-display mt-6 max-w-xl text-5xl leading-none font-black tracking-normal md:text-6xl">
+                Una agencia para marcas que quieren comunicar, vender y crecer con{' '}
+                <span className="text-blue-600">claridad.</span>
+              </h2>
+              <p className="mt-8 max-w-xl text-base leading-8 text-white/58">
+                Imagen Plus es una agencia de marketing, diseno y tecnologia con mas de 10
+                anos de experiencia acompanando marcas, empresas e instituciones en la
+                construccion de su presencia visual y digital.
+              </p>
+
+              <div className="mt-10 grid max-w-xl grid-cols-2 gap-px bg-white/10">
+                <div className="bg-[#05070b] p-5">
+                  <span className="font-display text-5xl font-black text-blue-600">
+                    10+
+                  </span>
+                  <p className="mt-2 text-sm font-bold text-white/70">
+                    anos de experiencia
+                  </p>
+                </div>
+                <div className="bg-[#05070b] p-5">
+                  <span className="font-display text-5xl font-black text-blue-600">
+                    360
+                  </span>
+                  <p className="mt-2 text-sm font-bold text-white/70">enfoque integral</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-px bg-white/10 md:grid-cols-3">
+              {aboutCards.map((card) => (
+                <article
+                  key={card.title}
+                  className="bg-[#0b0f16] p-6 transition hover:bg-blue-600"
+                >
+                  <p className="text-[10px] font-black tracking-[0.24em] text-blue-500 uppercase">
+                    Imagen Plus
+                  </p>
+                  <h3 className="font-display mt-6 text-3xl leading-none font-black">
+                    {card.title}
+                  </h3>
+                  <p className="mt-5 text-sm leading-7 text-white/62">{card.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-12">
+            <p className="text-center text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
+              Marcas e instituciones que confian en nosotros
+            </p>
+            <div className="mt-10 grid gap-8 text-center text-xl font-black text-white/65 md:grid-cols-3 xl:grid-cols-6">
+              {trustMarks.map((brand) => (
+                <span key={brand}>{brand}</span>
+              ))}
+            </div>
           </div>
         </section>
 
