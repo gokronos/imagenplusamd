@@ -165,11 +165,11 @@ export const postsQuery =
   defineQuery(`*[_type == "post" && status == "published"] | order(order asc, date desc) {
   _id,
   title,
-  slug,
+  "slug": slug.current,
   excerpt,
   categories[]->{
     title,
-    slug
+    "slug": slug.current
   },
   ${imageFields},
   ${publishingFields},
@@ -180,12 +180,12 @@ export const postBySlugQuery =
   defineQuery(`*[_type == "post" && slug.current == $slug][0]{
   _id,
   title,
-  slug,
+  "slug": slug.current,
   excerpt,
   body,
   categories[]->{
     title,
-    slug,
+    "slug": slug.current,
     description
   },
   ${imageFields},

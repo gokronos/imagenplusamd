@@ -9,11 +9,10 @@ import {
   Megaphone,
   Palette,
   Phone,
-  Play,
-  Sparkles,
   Video,
 } from 'lucide-react';
 import { AboutCarousel } from '@/components/home/about-carousel';
+import { ArticlesSection } from '@/components/home/articles-section';
 import { HeroSlider } from '@/components/home/hero-slider';
 import { MobileMenu } from '@/components/layout/mobile-menu';
 import { ServiceItemGrid } from '@/components/services/service-item-grid';
@@ -29,7 +28,7 @@ const navigation = [
   { number: '01', label: 'Inicio', href: '#inicio' },
   { number: '02', label: 'Servicios', href: '#servicios' },
   { number: '03', label: 'Proyectos', href: '#proyectos' },
-  { number: '04', label: 'Proceso', href: '#proceso' },
+  { number: '04', label: 'Articulos', href: '#articulos' },
   { number: '05', label: 'Nosotros', href: '#nosotros' },
   { number: '06', label: 'Contacto', href: '#contacto' },
 ];
@@ -102,14 +101,6 @@ const paths = [
     text: 'Identidad visual, branding y piezas para comunicar con coherencia.',
     href: '#diseno',
   },
-];
-
-const processSteps = [
-  ['01', 'Entendemos', 'Escuchamos tu idea y entendemos tus objetivos.'],
-  ['02', 'Estrategia', 'Definimos el camino y el plan de acción adecuado.'],
-  ['03', 'Creamos', 'Desarrollamos las soluciones con creatividad y tecnología.'],
-  ['04', 'Implementamos', 'Ejecutamos el plan con precisión y acompañamiento.'],
-  ['05', 'Medimos', 'Analizamos resultados y optimizamos para crecer.'],
 ];
 
 export default function HomePage() {
@@ -335,60 +326,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section
-          id="proceso"
-          className="grid scroll-mt-10 gap-px bg-white/10 px-5 py-20 md:px-10 lg:grid-cols-2 xl:px-20"
-        >
-          <div className="bg-[#05070b] p-8 text-white md:p-14">
-            <p className="text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
-              Nuestro proceso
-            </p>
-            <h2 className="font-display mt-6 max-w-md text-4xl leading-none font-black tracking-normal">
-              Un método claro. Resultados <span className="text-blue-600">seguros.</span>
-            </h2>
-            <div className="mt-12 grid gap-8 md:grid-cols-5">
-              {processSteps.map(([number, title, text]) => (
-                <div key={title}>
-                  <div className="inline-flex size-12 items-center justify-center rounded-full bg-blue-600 text-white">
-                    <Sparkles size={18} />
-                  </div>
-                  <p className="mt-7 text-xs font-black">{number}</p>
-                  <h3 className="mt-3 font-black">{title}</h3>
-                  <p className="mt-3 text-xs leading-5 text-white/55">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden bg-zinc-950 p-8 md:p-14">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.35),transparent_38%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.18),transparent_28%)]" />
-            <div className="relative max-w-md">
-              <p className="text-xs font-black tracking-[0.28em] text-blue-500 uppercase">
-                Detrás de cada proyecto
-              </p>
-              <h2 className="font-display mt-6 text-5xl leading-none font-black tracking-normal">
-                Personas que aman lo que <span className="text-blue-600">hacen.</span>
-              </h2>
-              <p className="mt-8 text-sm leading-7 text-white/60">
-                Somos creativos, estrategas, desarrolladores, productores y soñadores. Un
-                equipo multidisciplinario enfocado en resultados extraordinarios.
-              </p>
-              <a
-                href="#nosotros"
-                className="mt-10 inline-flex items-center gap-4 text-xs font-black tracking-[0.2em] text-blue-500 uppercase"
-              >
-                Conoce Imagen Plus <ArrowUpRight size={16} />
-              </a>
-            </div>
-            <button
-              type="button"
-              aria-label="Reproducir video del equipo"
-              className="absolute right-10 bottom-10 inline-flex size-16 items-center justify-center rounded-full border border-blue-600 text-white"
-            >
-              <Play size={20} fill="currentColor" />
-            </button>
-          </div>
-        </section>
+        <ArticlesSection />
 
         <footer
           id="contacto"

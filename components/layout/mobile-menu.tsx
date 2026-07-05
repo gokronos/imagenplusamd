@@ -42,7 +42,7 @@ const navigation = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Proceso', href: '#proceso' },
+  { label: 'Articulos', href: '#articulos' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ];

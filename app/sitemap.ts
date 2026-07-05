@@ -1,8 +1,26 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site';
+import { sanityClient } from '@/sanity/lib/client';
+import { sitemapQuery } from '@/sanity/lib/queries';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+type SitemapDocument = {
+  _type: string;
+  slug?: string;
+  date?: string;
+};
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const cmsRoutes = await sanityClient.fetch<SitemapDocument[]>(sitemapQuery);
+  const postRoutes = cmsRoutes
+    .filter((item) => item._type === 'post' && item.slug)
+    .map((item) => ({
+      url: `${siteConfig.url}/blog/${item.slug}`,
+      lastModified: item.date ? new Date(item.date) : now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
   const serviceRoutes = [
     '/servicios/diseno-grafico',
     '/servicios/branding',
@@ -53,11 +71,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    {
+      url: `${siteConfig.url}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
     ...serviceRoutes.map((route) => ({
       url: `${siteConfig.url}${route}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
+    ...postRoutes,
   ];
 }

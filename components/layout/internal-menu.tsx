@@ -20,7 +20,7 @@ type ServiceMenuGroup = {
 
 const links = [
   { number: '02', label: 'Proyectos', href: '/#proyectos' },
-  { number: '03', label: 'Proceso', href: '/#proceso' },
+  { number: '03', label: 'Articulos', href: '/#articulos' },
   { number: '04', label: 'Contacto', href: '/#contacto' },
 ];
 
