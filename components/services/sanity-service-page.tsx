@@ -115,7 +115,7 @@ export async function SanityServicePage({ slug }: { slug: string }) {
     service?.process?.filter((step) => step.number && step.title && step.text) ?? [];
 
   return (
-    <main className="min-h-screen bg-[#f4f5f7] text-black">
+    <main className="min-h-screen bg-[#05070b] text-white">
       <section className="bg-black px-5 py-16 text-white md:px-10 xl:px-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
@@ -168,49 +168,49 @@ export async function SanityServicePage({ slug }: { slug: string }) {
       </section>
 
       <section className="px-5 py-16 md:px-10 xl:px-20">
-        <div className="mx-auto grid max-w-6xl gap-px bg-black/10 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="bg-white p-6 md:p-10">
+        <div className="mx-auto grid max-w-6xl gap-px bg-white/10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="bg-[#0b0f16] p-6 md:p-10">
             <span className="inline-flex size-14 items-center justify-center bg-blue-600 text-white">
               <Icon size={28} />
             </span>
             <h2 className="font-display mt-8 text-4xl leading-none font-black">
               {service?.details?.whatTitle ?? 'Qué hacemos'}
             </h2>
-            <p className="mt-6 text-base leading-8 text-black/62">
+            <p className="mt-6 text-base leading-8 text-white/62">
               {service?.details?.whatText ?? service?.excerpt}
             </p>
           </div>
 
-          <div className="bg-white p-6 md:p-10">
+          <div className="bg-[#0b0f16] p-6 md:p-10">
             <p className="text-xs font-black tracking-[0.24em] text-blue-600 uppercase">
               Importancia
             </p>
             <h2 className="font-display mt-5 text-4xl leading-none font-black">
               {service?.details?.importanceTitle ?? 'Un buen servicio ordena la marca.'}
             </h2>
-            <p className="mt-6 text-base leading-8 text-black/62">
+            <p className="mt-6 text-base leading-8 text-white/62">
               {service?.details?.importanceText ?? service?.excerpt}
             </p>
           </div>
         </div>
 
-        <div className="mx-auto mt-px grid max-w-6xl gap-px bg-black/10 md:grid-cols-2">
+        <div className="mx-auto mt-px grid max-w-6xl gap-px bg-white/10 md:grid-cols-2">
           {deliverables.map((item) => (
             <div
               key={item}
-              className="grid grid-cols-[36px_minmax(0,1fr)] gap-4 bg-white p-5"
+              className="grid grid-cols-[36px_minmax(0,1fr)] gap-4 bg-[#0b0f16] p-5"
             >
               <span className="inline-flex size-9 items-center justify-center bg-blue-600 text-white">
                 <BadgeCheck size={18} />
               </span>
-              <p className="text-sm leading-6 text-black/68">{item}</p>
+              <p className="text-sm leading-6 text-white/68">{item}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="px-5 pb-16 md:px-10 xl:px-20">
-        <div className="mx-auto max-w-6xl border-t border-black/10 pt-14">
+        <div className="mx-auto max-w-6xl border-t border-white/10 pt-14">
           <div className="grid gap-8 lg:grid-cols-[0.55fr_1.45fr]">
             <div>
               <p className="text-xs font-black tracking-[0.24em] text-blue-600 uppercase">
@@ -225,7 +225,7 @@ export async function SanityServicePage({ slug }: { slug: string }) {
               {packages.map((item) => (
                 <article
                   key={item.name}
-                  className="group grid content-between bg-white p-6 transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.1)]"
+                  className="group grid content-between border border-white/10 bg-[#0b0f16] p-6 transition hover:-translate-y-1 hover:border-blue-600/35 hover:shadow-[0_24px_70px_rgba(37,99,235,0.1)]"
                 >
                   <div>
                     <div className="flex items-start justify-between gap-5">
@@ -237,14 +237,14 @@ export async function SanityServicePage({ slug }: { slug: string }) {
                         className="text-blue-600 transition group-hover:rotate-45"
                       />
                     </div>
-                    <p className="mt-5 text-sm leading-7 text-black/60">
+                    <p className="mt-5 text-sm leading-7 text-white/60">
                       {item.description}
                     </p>
                     <ul className="mt-6 grid gap-3">
                       {item.includes?.map((include) => (
                         <li
                           key={include}
-                          className="grid grid-cols-[24px_minmax(0,1fr)] gap-3 text-sm leading-6 text-black/68"
+                          className="grid grid-cols-[24px_minmax(0,1fr)] gap-3 text-sm leading-6 text-white/68"
                         >
                           <span className="mt-1 inline-flex size-5 items-center justify-center bg-blue-600 text-white">
                             <BadgeCheck size={12} />
@@ -257,7 +257,7 @@ export async function SanityServicePage({ slug }: { slug: string }) {
 
                   <Link
                     href="/#contacto"
-                    className="mt-8 inline-flex h-11 items-center justify-center gap-3 border border-black/15 px-4 text-xs font-black tracking-[0.16em] text-black uppercase transition hover:border-blue-600 hover:text-blue-600"
+                    className="mt-8 inline-flex h-11 items-center justify-center gap-3 border border-white/15 px-4 text-xs font-black tracking-[0.16em] text-white uppercase transition hover:border-blue-600 hover:text-blue-500"
                   >
                     Consultar
                     <ArrowUpRight size={15} />

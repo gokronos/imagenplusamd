@@ -178,7 +178,7 @@ export default function HomePage() {
 
         <section
           id="servicios"
-          className="scroll-mt-10 bg-[#f4f5f7] px-5 py-24 text-black md:px-10 xl:px-12 2xl:px-20"
+          className="scroll-mt-10 bg-[#05070b] px-5 py-24 text-white md:px-10 xl:px-12 2xl:px-20"
         >
           <div className="mx-auto grid max-w-[1380px] min-w-0 gap-14 lg:grid-cols-[minmax(260px,0.42fr)_minmax(0,1fr)] 2xl:grid-cols-[minmax(320px,0.5fr)_minmax(0,1.5fr)]">
             <div className="lg:sticky lg:top-10 lg:self-start">
@@ -192,20 +192,20 @@ export default function HomePage() {
               <div className="mt-8 flex items-center gap-4">
                 <span className="h-px w-24 bg-blue-600" />
                 <span className="size-2 rounded-full bg-blue-600" />
-                <span className="h-px w-10 bg-black/15" />
+                <span className="h-px w-10 bg-white/15" />
               </div>
-              <p className="mt-8 max-w-sm text-base leading-8 text-black/58">
+              <p className="mt-8 max-w-sm text-base leading-8 text-white/58">
                 Imagen Plus ofrece soluciones integrales para construir marcas claras,
                 visibles y preparadas para crecer.
               </p>
-              <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden bg-black/10 text-sm">
-                <div className="bg-[#f4f5f7] p-5">
+              <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden bg-white/10 text-sm">
+                <div className="bg-[#0b0f16] p-5">
                   <span className="font-display text-4xl font-black text-blue-600">
                     06
                   </span>
                   <p className="mt-2 font-bold">líneas de servicio</p>
                 </div>
-                <div className="bg-[#f4f5f7] p-5">
+                <div className="bg-[#0b0f16] p-5">
                   <span className="font-display text-4xl font-black text-blue-600">
                     50+
                   </span>
@@ -214,7 +214,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="min-w-0 border-y border-black/10 bg-black/5">
+            <div className="min-w-0 border-y border-white/10 bg-white/[0.03]">
               {serviceGroups.map((service, index) => {
                 const Icon = service.icon;
 
@@ -222,13 +222,13 @@ export default function HomePage() {
                   <article
                     id={service.slug}
                     key={service.title}
-                    className="group grid scroll-mt-10 gap-x-8 gap-y-7 border-b border-black/10 bg-[#f4f5f7] px-5 py-10 transition last:border-b-0 hover:bg-white md:grid-cols-[76px_minmax(0,1fr)] md:px-8 xl:px-9 2xl:grid-cols-[96px_minmax(240px,0.72fr)_minmax(0,1.28fr)] 2xl:px-10"
+                    className="group grid scroll-mt-10 gap-x-8 gap-y-7 border-b border-white/10 bg-[#05070b] px-5 py-10 transition last:border-b-0 hover:bg-[#0b0f16] md:grid-cols-[76px_minmax(0,1fr)] md:px-8 xl:px-9 2xl:grid-cols-[96px_minmax(240px,0.72fr)_minmax(0,1.28fr)] 2xl:px-10"
                   >
                     <div className="flex items-center justify-between gap-5 md:block">
-                      <span className="font-display text-5xl leading-none font-black text-black/14 transition group-hover:text-blue-600">
+                      <span className="font-display text-5xl leading-none font-black text-white/14 transition group-hover:text-blue-600">
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <span className="mt-0 inline-flex size-12 items-center justify-center border border-blue-600/20 bg-white text-blue-600 md:mt-9">
+                      <span className="mt-0 inline-flex size-12 items-center justify-center border border-blue-600/25 bg-white/[0.04] text-blue-500 md:mt-9">
                         <Icon size={24} />
                       </span>
                     </div>
@@ -237,12 +237,12 @@ export default function HomePage() {
                       <h3 className="font-display text-3xl leading-none font-black tracking-normal md:text-[2.35rem]">
                         {service.title}
                       </h3>
-                      <p className="mt-5 text-sm leading-7 text-black/60">
+                      <p className="mt-5 text-sm leading-7 text-white/60">
                         {service.description}
                       </p>
                       <a
                         href="#contacto"
-                        className="mt-7 inline-flex h-11 items-center gap-4 border border-blue-600/25 bg-white px-4 text-[11px] font-extrabold tracking-[0.14em] text-blue-600 uppercase transition hover:border-blue-600 hover:bg-blue-600 hover:text-white"
+                        className="mt-7 inline-flex h-11 items-center gap-4 border border-blue-600/30 bg-white/[0.04] px-4 text-[11px] font-extrabold tracking-[0.14em] text-blue-500 uppercase transition hover:border-blue-600 hover:bg-blue-600 hover:text-white"
                       >
                         Solicitar servicio
                         <span className="inline-flex size-6 items-center justify-center border border-current">
@@ -301,7 +301,7 @@ export default function HomePage() {
           id="proceso"
           className="grid scroll-mt-10 gap-px bg-white/10 px-5 py-20 md:px-10 lg:grid-cols-2 xl:px-20"
         >
-          <div className="bg-white p-8 text-black md:p-14">
+          <div className="bg-[#05070b] p-8 text-white md:p-14">
             <p className="text-xs font-black tracking-[0.28em] text-blue-600 uppercase">
               Nuestro proceso
             </p>
@@ -311,12 +311,12 @@ export default function HomePage() {
             <div className="mt-12 grid gap-8 md:grid-cols-5">
               {processSteps.map(([number, title, text]) => (
                 <div key={title}>
-                  <div className="inline-flex size-12 items-center justify-center rounded-full bg-black text-white">
+                  <div className="inline-flex size-12 items-center justify-center rounded-full bg-blue-600 text-white">
                     <Sparkles size={18} />
                   </div>
                   <p className="mt-7 text-xs font-black">{number}</p>
                   <h3 className="mt-3 font-black">{title}</h3>
-                  <p className="mt-3 text-xs leading-5 text-black/55">{text}</p>
+                  <p className="mt-3 text-xs leading-5 text-white/55">{text}</p>
                 </div>
               ))}
             </div>

@@ -163,7 +163,7 @@ export function ServiceItemGrid({ items }: ServiceItemGridProps) {
               <button
                 type="button"
                 onClick={() => setActiveItem(item)}
-                className="grid min-h-11 w-full min-w-0 grid-cols-[32px_minmax(0,1fr)_14px] items-center gap-3 overflow-hidden border border-black/10 bg-white/72 px-3 text-[11px] leading-tight font-bold text-black/70 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition group-hover:border-black/15 hover:-translate-y-0.5 hover:border-blue-600/35 hover:bg-white hover:text-blue-700 hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] xl:px-4 xl:text-[11px]"
+                className="grid min-h-11 w-full min-w-0 grid-cols-[32px_minmax(0,1fr)_14px] items-center gap-3 overflow-hidden border border-white/10 bg-white/[0.04] px-3 text-[11px] leading-tight font-bold text-white/70 shadow-[0_1px_0_rgba(255,255,255,0.02)] transition group-hover:border-white/15 hover:-translate-y-0.5 hover:border-blue-600/45 hover:bg-white/[0.08] hover:text-white hover:shadow-[0_10px_24px_rgba(37,99,235,0.08)] xl:px-4 xl:text-[11px]"
               >
                 <span className="inline-flex size-8 items-center justify-center border border-blue-600/12 bg-blue-600/[0.06] text-blue-600">
                   <ItemIcon size={15} strokeWidth={2.1} />
@@ -188,7 +188,7 @@ export function ServiceItemGrid({ items }: ServiceItemGridProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="service-modal-title"
-            className="custom-scrollbar relative grid max-h-[88vh] w-full max-w-5xl overflow-y-auto border border-white/12 bg-white text-black shadow-2xl lg:grid-cols-[0.9fr_1.1fr]"
+            className="custom-scrollbar relative grid max-h-[88vh] w-full max-w-5xl overflow-y-auto border border-white/12 bg-[#080b12] text-white shadow-2xl lg:grid-cols-[0.9fr_1.1fr]"
           >
             <div className="relative min-h-[260px] overflow-hidden bg-black lg:min-h-[620px]">
               {activeContent.visual ? (
@@ -231,13 +231,13 @@ export function ServiceItemGrid({ items }: ServiceItemGridProps) {
                   type="button"
                   aria-label="Cerrar ventana"
                   onClick={() => setActiveItem(null)}
-                  className="inline-flex size-10 shrink-0 items-center justify-center border border-black/10 bg-black text-white transition hover:bg-blue-600"
+                  className="inline-flex size-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.06] text-white transition hover:bg-blue-600"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              <p className="mt-6 max-w-xl text-base leading-8 text-black/62">
+              <p className="mt-6 max-w-xl text-base leading-8 text-white/62">
                 {activeContent.summary}
               </p>
 
@@ -245,7 +245,7 @@ export function ServiceItemGrid({ items }: ServiceItemGridProps) {
                 {activeContent.bullets.map((bullet) => (
                   <div
                     key={bullet}
-                    className="grid grid-cols-[36px_minmax(0,1fr)] gap-4 border border-black/8 bg-[#f4f5f7] p-4 text-sm leading-6 text-black/70 transition hover:border-blue-600/20 hover:bg-white"
+                    className="grid grid-cols-[36px_minmax(0,1fr)] gap-4 border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-white/70 transition hover:border-blue-600/35 hover:bg-white/[0.07]"
                   >
                     <span className="mt-0.5 inline-flex size-9 items-center justify-center bg-blue-600 text-white">
                       <BadgeCheck size={16} />
@@ -268,7 +268,7 @@ export function ServiceItemGrid({ items }: ServiceItemGridProps) {
                 <a
                   href="#contacto"
                   onClick={() => setActiveItem(null)}
-                  className="inline-flex h-12 items-center gap-4 border border-black/15 px-5 text-xs font-black tracking-[0.16em] text-black uppercase transition hover:border-blue-600 hover:text-blue-600"
+                  className="inline-flex h-12 items-center gap-4 border border-white/15 px-5 text-xs font-black tracking-[0.16em] text-white uppercase transition hover:border-blue-600 hover:text-blue-500"
                 >
                   Solicitar servicio
                   <ArrowUpRight size={16} />
