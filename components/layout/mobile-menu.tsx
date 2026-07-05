@@ -6,6 +6,7 @@ import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
+import { getServiceHref } from '@/data/services/links';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const serviceGroups = [
@@ -150,7 +151,15 @@ export function MobileMenu() {
                   </a>
                   <ul className="grid gap-2 text-sm text-white/55">
                     {service.items.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item}>
+                        <a
+                          href={getServiceHref(item) ?? `#${service.slug}`}
+                          onClick={closeMenu}
+                          className="block transition hover:text-white"
+                        >
+                          {item}
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 </div>

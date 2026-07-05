@@ -20,6 +20,7 @@ import { audiovisualServiceItems } from '@/data/services/audiovisual';
 import { disenoServiceItems } from '@/data/services/diseno';
 import { desarrolloWebServiceItems } from '@/data/services/desarrollo-web';
 import { inteligenciaArtificialServiceItems } from '@/data/services/inteligencia-artificial';
+import { getServiceHref } from '@/data/services/links';
 import { marketingServiceItems } from '@/data/services/marketing';
 
 const navigation = [
@@ -142,7 +143,7 @@ export default function HomePage() {
                   {service.items.map((item) => (
                     <li key={item}>
                       <a
-                        href={`#${service.slug}`}
+                        href={getServiceHref(item) ?? `#${service.slug}`}
                         title={item}
                         className="block truncate transition hover:text-white"
                       >
